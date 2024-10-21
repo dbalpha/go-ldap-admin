@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"github.com/eryajf/go-ldap-admin/logic"
-	"github.com/eryajf/go-ldap-admin/model/request"
+	"github.com/dbalpha/go-ldap-admin/logic"
+	"github.com/dbalpha/go-ldap-admin/model/request"
 
 	"github.com/gin-gonic/gin"
 )

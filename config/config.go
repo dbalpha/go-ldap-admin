@@ -36,6 +36,7 @@ type config struct {
 	DingTalk  *DingTalkConfig  `mapstructure:"dingtalk" json:"dingTalk"`
 	WeCom     *WeComConfig     `mapstructure:"wecom" json:"weCom"`
 	FeiShu    *FeiShuConfig    `mapstructure:"feishu" json:"feiShu"`
+	Jenkins   *JenkinsConfig   `mapstructure:"job" json:"job"`
 }
 
 // 设置读取配置信息
@@ -241,4 +242,11 @@ type FeiShuConfig struct {
 	UserSyncTime  string   `mapstructure:"user-sync-time" json:"userSyncTime"`
 	DeptList      []string `mapstructure:"dept-list" json:"deptList"`
 	IsUpdateSyncd bool     `mapstructure:"is-update-syncd" json:"isUpdateSyncd"`
+}
+
+type JenkinsConfig struct {
+	Host   string `mapstructure:"host" json:"host"`
+	Port   string `mapstructure:"port" json:"port"`
+	User   string `mapstructure:"user" json:"user"`
+	Passwd string `mapstructure:"passwd" json:"pass"`
 }

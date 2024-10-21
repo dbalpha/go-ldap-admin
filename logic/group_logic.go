@@ -2,17 +2,18 @@ package logic
 
 import (
 	"fmt"
+	"github.com/go-ldap/ldap/v3"
 	"strconv"
 	"strings"
 
-	"github.com/eryajf/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/config"
 
-	"github.com/eryajf/go-ldap-admin/model"
-	"github.com/eryajf/go-ldap-admin/model/request"
-	"github.com/eryajf/go-ldap-admin/model/response"
-	"github.com/eryajf/go-ldap-admin/public/tools"
-	"github.com/eryajf/go-ldap-admin/service/ildap"
-	"github.com/eryajf/go-ldap-admin/service/isql"
+	"github.com/dbalpha/go-ldap-admin/model"
+	"github.com/dbalpha/go-ldap-admin/model/request"
+	"github.com/dbalpha/go-ldap-admin/model/response"
+	"github.com/dbalpha/go-ldap-admin/public/tools"
+	"github.com/dbalpha/go-ldap-admin/service/ildap"
+	"github.com/dbalpha/go-ldap-admin/service/isql"
 
 	"github.com/gin-gonic/gin"
 )
@@ -216,6 +217,11 @@ func (l GroupLogic) Delete(c *gin.Context, req interface{}) (data interface{}, r
 		// 删除的时候先从ldap进行删除
 		err = ildap.Group.Delete(group.GroupDN)
 		if err != nil {
+			errldapCpde := err.(*ldap.Error).ResultCode
+			// ldap原本就没有的条目
+			if errldapCpde == 32 {
+				continue
+			}
 			return nil, tools.NewLdapError(fmt.Errorf("向LDAP删除分组失败：" + err.Error()))
 		}
 	}

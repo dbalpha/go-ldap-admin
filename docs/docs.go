@@ -9,11 +9,11 @@ const docTemplate = `{
     "info": {
         "description": "{{escape .Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "https://github.com/eryajf/go-ldap-admin",
+        "termsOfService": "https://github.com/dbalpha/go-ldap-admin",
         "contact": {
             "name": "项目作者：二丫讲梵 、 swagger作者：南宫乘风",
-            "url": "https://github.com/eryajf/go-ldap-admin",
-            "email": "https://github.com/eryajf/go-ldap-admin"
+            "url": "https://github.com/dbalpha/go-ldap-admin",
+            "email": "https://github.com/dbalpha/go-ldap-admin"
         },
         "version": "{{.Version}}"
     },
@@ -439,6 +439,348 @@ const docTemplate = `{
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/request.BaseSendCodeReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/add": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "添加发布任务",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布"
+                ],
+                "summary": "添加发布任务",
+                "parameters": [
+                    {
+                        "description": "添加用户记录的结构体",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.DeployAddReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/delete": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "删除发布任务",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布"
+                ],
+                "summary": "删除发布任务",
+                "parameters": [
+                    {
+                        "description": "添加用户记录的结构体",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.DeployDeleteReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/history/delete": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "删除发布任务",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布"
+                ],
+                "summary": "删除发布任务",
+                "parameters": [
+                    {
+                        "description": "添加用户记录的结构体",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.DeployDeleteReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/history/info": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取任务详情",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布",
+                    "任务发布"
+                ],
+                "summary": "任务详情",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "发布历史ID",
+                        "name": "ID",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/history/list": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取任务发布历史",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布"
+                ],
+                "summary": "任务发布历史",
+                "parameters": [
+                    {
+                        "description": "添加用户记录的结构体",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.DeployInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/info": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取任务详情",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布",
+                    "任务发布"
+                ],
+                "summary": "任务详情",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "jobID",
+                        "name": "ID",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/list": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "获取任务列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布"
+                ],
+                "summary": "任务列表",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "job名字",
+                        "name": "job_name",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/run": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "任务发布",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布",
+                    "任务发布"
+                ],
+                "summary": "任务发布",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "发布历史ID",
+                        "name": "ID",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ResponseBody"
+                        }
+                    }
+                }
+            }
+        },
+        "/deploy/update": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "更新发布任务",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "任务发布"
+                ],
+                "summary": "更新发布任务",
+                "parameters": [
+                    {
+                        "description": "添加用户记录的结构体",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.DeployUpdateReq"
                         }
                     }
                 ],
@@ -2230,6 +2572,77 @@ const docTemplate = `{
                     "type": "string",
                     "maxLength": 100,
                     "minLength": 0
+                }
+            }
+        },
+        "request.DeployAddReq": {
+            "type": "object",
+            "required": [
+                "git_url",
+                "json:job_name"
+            ],
+            "properties": {
+                "branch": {
+                    "type": "string"
+                },
+                "git_url": {
+                    "type": "string"
+                },
+                "json:job_name": {
+                    "type": "string"
+                },
+                "run_config": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.DeployDeleteReq": {
+            "type": "object",
+            "required": [
+                "deploy_id"
+            ],
+            "properties": {
+                "deploy_id": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "request.DeployInfo": {
+            "type": "object",
+            "required": [
+                "deploy_id"
+            ],
+            "properties": {
+                "deploy_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "request.DeployUpdateReq": {
+            "type": "object",
+            "required": [
+                "deploy_id",
+                "git_url",
+                "job_name"
+            ],
+            "properties": {
+                "branch": {
+                    "type": "string"
+                },
+                "deploy_id": {
+                    "type": "integer"
+                },
+                "git_url": {
+                    "type": "string"
+                },
+                "job_name": {
+                    "type": "string"
+                },
+                "run_config": {
+                    "type": "string"
                 }
             }
         },

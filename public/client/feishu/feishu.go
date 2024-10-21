@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/chyroc/lark"
-	"github.com/eryajf/go-ldap-admin/config"
-	"github.com/eryajf/go-ldap-admin/public/tools"
+	"github.com/dbalpha/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/public/tools"
 )
 
 // 官方文档： https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/children

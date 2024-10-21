@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/eryajf/go-ldap-admin/config"
-	"github.com/eryajf/go-ldap-admin/public/tools"
+	"github.com/dbalpha/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/public/tools"
 	"github.com/zhaoyunxing92/dingtalk/v2/request"
 )
 

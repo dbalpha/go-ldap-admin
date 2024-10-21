@@ -189,6 +189,7 @@ INSERT INTO `casbin_rule` (`id`, `ptype`, `v0`, `v1`, `v2`, `v3`, `v4`, `v5`) VA
 INSERT INTO `casbin_rule` (`id`, `ptype`, `v0`, `v1`, `v2`, `v3`, `v4`, `v5`) VALUES (14, 'p', 'user', '/user/changePwd', 'POST', '', '', '');
 INSERT INTO `casbin_rule` (`id`, `ptype`, `v0`, `v1`, `v2`, `v3`, `v4`, `v5`) VALUES (10, 'p', 'user', '/user/info', 'GET', '', '', '');
 INSERT INTO `casbin_rule` (`id`, `ptype`, `v0`, `v1`, `v2`, `v3`, `v4`, `v5`) VALUES (12, 'p', 'user', '/user/list', 'GET', '', '', '');
+INSERT INTO `casbin_rule` (`id`, `ptype`, `v0`, `v1`, `v2`, `v3`, `v4`, `v5`) VALUES (74, 'p','admin','/menu/access/tree','GET','','','');
 COMMIT;
 
 -- ----------------------------

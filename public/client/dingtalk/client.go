@@ -1,8 +1,8 @@
 package dingtalk
 
 import (
-	"github.com/eryajf/go-ldap-admin/config"
-	"github.com/eryajf/go-ldap-admin/public/common"
+	"github.com/dbalpha/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/public/common"
 	"github.com/zhaoyunxing92/dingtalk/v2"
 )
 

@@ -2,7 +2,7 @@ package routes
 
 import (
 	jwt "github.com/appleboy/gin-jwt/v2"
-	"github.com/eryajf/go-ldap-admin/controller"
+	"github.com/dbalpha/go-ldap-admin/controller"
 	"github.com/gin-gonic/gin"
 )
 

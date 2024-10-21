@@ -8,23 +8,23 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/eryajf/go-ldap-admin/logic"
+	"github.com/dbalpha/go-ldap-admin/logic"
 
-	"github.com/eryajf/go-ldap-admin/config"
-	"github.com/eryajf/go-ldap-admin/middleware"
-	"github.com/eryajf/go-ldap-admin/public/common"
-	"github.com/eryajf/go-ldap-admin/routes"
-	"github.com/eryajf/go-ldap-admin/service/isql"
+	"github.com/dbalpha/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/middleware"
+	"github.com/dbalpha/go-ldap-admin/public/common"
+	"github.com/dbalpha/go-ldap-admin/routes"
+	"github.com/dbalpha/go-ldap-admin/service/isql"
 )
 
 // @title Go Ldap Admin
 // @version 1.0
 // @description 基于Go+Vue实现的openLDAP后台管理项目
-// @termsOfService https://github.com/eryajf/go-ldap-admin
+// @termsOfService https://github.com/dbalpha/go-ldap-admin
 
 // @contact.name 项目作者：二丫讲梵 、 swagger作者：南宫乘风
-// @contact.url https://github.com/eryajf/go-ldap-admin
-// @contact.email https://github.com/eryajf/go-ldap-admin
+// @contact.url https://github.com/dbalpha/go-ldap-admin
+// @contact.email https://github.com/dbalpha/go-ldap-admin
 
 // @host 127.0.0.1:8888
 // @BasePath /api
@@ -53,6 +53,9 @@ func main() {
 
 	// 初始化mysql数据
 	common.InitData()
+
+	// 初始化Jenkins
+	common.InitJenkins()
 
 	// 操作日志中间件处理日志时没有将日志发送到rabbitmq或者kafka中, 而是发送到了channel中
 	// 这里开启3个goroutine处理channel将日志记录到数据库

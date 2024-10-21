@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/eryajf/go-ldap-admin/config"
-	_ "github.com/eryajf/go-ldap-admin/docs"
-	"github.com/eryajf/go-ldap-admin/middleware"
-	"github.com/eryajf/go-ldap-admin/public/common"
-	"github.com/eryajf/go-ldap-admin/public/static"
+	"github.com/dbalpha/go-ldap-admin/config"
+	_ "github.com/dbalpha/go-ldap-admin/docs"
+	"github.com/dbalpha/go-ldap-admin/middleware"
+	"github.com/dbalpha/go-ldap-admin/public/common"
+	"github.com/dbalpha/go-ldap-admin/public/static"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -68,7 +68,7 @@ func InitRoutes() *gin.Engine {
 	InitApiRoutes(apiGroup, authMiddleware)           // 注册接口路由, jwt认证中间件,casbin鉴权中间件
 	InitOperationLogRoutes(apiGroup, authMiddleware)  // 注册操作日志路由, jwt认证中间件,casbin鉴权中间件
 	InitFieldRelationRoutes(apiGroup, authMiddleware) // 注册操作日志路由, jwt认证中间件,casbin鉴权中间件
-
+	InitDeployRoutes(apiGroup, authMiddleware)        // 注册发布路由, jwt认证中间件,casbin鉴权中间件
 	common.Log.Info("初始化路由完成！")
 	return r
 }

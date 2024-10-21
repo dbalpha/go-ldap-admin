@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/eryajf/go-ldap-admin/controller"
-	"github.com/eryajf/go-ldap-admin/middleware"
+	"github.com/dbalpha/go-ldap-admin/controller"
+	"github.com/dbalpha/go-ldap-admin/middleware"
 
 	jwt "github.com/appleboy/gin-jwt/v2"
 	"github.com/gin-gonic/gin"
@@ -31,6 +31,8 @@ func InitGroupRoutes(r *gin.RouterGroup, authMiddleware *jwt.GinJWTMiddleware) g
 		group.POST("/syncFeiShuDepts", controller.Group.SyncFeiShuDepts)     // 同步飞书部门到平台
 		group.POST("/syncOpenLdapDepts", controller.Group.SyncOpenLdapDepts) // 同步ldap的分组到平台InitGroupRoutes
 		group.POST("/syncSqlGroups", controller.Group.SyncSqlGroups)         // 同步Sql分组到Ldap
+		//app相关
+		group.POST("/app")
 	}
 
 	return r

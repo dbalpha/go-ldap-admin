@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/eryajf/go-ldap-admin/config"
-	"github.com/eryajf/go-ldap-admin/public/common"
+	"github.com/dbalpha/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/public/common"
 	ldap "github.com/go-ldap/ldap/v3"
 )
 

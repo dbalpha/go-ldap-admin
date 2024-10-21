@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/eryajf/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/config"
 	"github.com/patrickmn/go-cache"
 
 	"strconv"

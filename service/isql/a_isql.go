@@ -8,4 +8,6 @@ var (
 	Role          = &RoleService{}
 	OperationLog  = &OperationLogService{}
 	FieldRelation = &FieldRelationService{}
+	Deploy        = &DeployService{}
+	DeployHis     = &DeployHisService{}
 )

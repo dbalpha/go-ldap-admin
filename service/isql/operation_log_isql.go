@@ -6,10 +6,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/eryajf/go-ldap-admin/model"
-	"github.com/eryajf/go-ldap-admin/model/request"
-	"github.com/eryajf/go-ldap-admin/public/common"
-	"github.com/eryajf/go-ldap-admin/public/tools"
+	"github.com/dbalpha/go-ldap-admin/model"
+	"github.com/dbalpha/go-ldap-admin/model/request"
+	"github.com/dbalpha/go-ldap-admin/public/common"
+	"github.com/dbalpha/go-ldap-admin/public/tools"
 
 	"gorm.io/gorm"
 )

@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/eryajf/go-ldap-admin/config"
-	"github.com/eryajf/go-ldap-admin/model"
-	"github.com/eryajf/go-ldap-admin/public/client/wechat"
+	"github.com/dbalpha/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/model"
+	"github.com/dbalpha/go-ldap-admin/public/client/wechat"
 
-	"github.com/eryajf/go-ldap-admin/public/tools"
-	"github.com/eryajf/go-ldap-admin/service/ildap"
-	"github.com/eryajf/go-ldap-admin/service/isql"
+	"github.com/dbalpha/go-ldap-admin/public/tools"
+	"github.com/dbalpha/go-ldap-admin/service/ildap"
+	"github.com/dbalpha/go-ldap-admin/service/isql"
 	"github.com/gin-gonic/gin"
 )
 

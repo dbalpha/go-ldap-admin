@@ -2,7 +2,7 @@ package feishu
 
 import (
 	"github.com/chyroc/lark"
-	"github.com/eryajf/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/config"
 )
 
 func InitFeiShuClient() *lark.Lark {

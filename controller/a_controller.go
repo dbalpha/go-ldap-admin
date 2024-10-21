@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"regexp"
 
-	"github.com/eryajf/go-ldap-admin/public/tools"
+	"github.com/dbalpha/go-ldap-admin/public/tools"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/locales/zh"
@@ -23,9 +23,9 @@ var (
 	OperationLog  = &OperationLogController{}
 	Base          = &BaseController{}
 	FieldRelation = &FieldRelationController{}
-
-	validate = validator.New()
-	trans    ut.Translator
+	Deploy        = &DeployController{}
+	validate      = validator.New()
+	trans         ut.Translator
 )
 
 func init() {

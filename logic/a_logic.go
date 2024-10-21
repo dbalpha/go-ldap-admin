@@ -5,12 +5,12 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/eryajf/go-ldap-admin/config"
-	"github.com/eryajf/go-ldap-admin/model"
-	"github.com/eryajf/go-ldap-admin/public/common"
-	"github.com/eryajf/go-ldap-admin/public/tools"
-	"github.com/eryajf/go-ldap-admin/service/ildap"
-	"github.com/eryajf/go-ldap-admin/service/isql"
+	"github.com/dbalpha/go-ldap-admin/config"
+	"github.com/dbalpha/go-ldap-admin/model"
+	"github.com/dbalpha/go-ldap-admin/public/common"
+	"github.com/dbalpha/go-ldap-admin/public/tools"
+	"github.com/dbalpha/go-ldap-admin/service/ildap"
+	"github.com/dbalpha/go-ldap-admin/service/isql"
 	jsoniter "github.com/json-iterator/go"
 	"github.com/robfig/cron/v3"
 	"github.com/tidwall/gjson"
@@ -32,8 +32,10 @@ var (
 	Sql           = &SqlLogic{}
 	Base          = &BaseLogic{}
 	FieldRelation = &FieldRelationLogic{}
-
-	json = jsoniter.ConfigCompatibleWithStandardLibrary
+	Deploy        = &DeployLogic{}
+	DeployHis     = &DeployHisLogic{}
+	Jenkins       = &JenkinsLogic{}
+	json          = jsoniter.ConfigCompatibleWithStandardLibrary
 )
 
 // CommonAddGroup 标准创建分组

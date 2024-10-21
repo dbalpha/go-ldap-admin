@@ -19,9 +19,9 @@ definitions:
         minLength: 0
         type: string
     required:
-      - category
-      - method
-      - path
+    - category
+    - method
+    - path
     type: object
   request.ApiDeleteReq:
     properties:
@@ -30,7 +30,7 @@ definitions:
           type: integer
         type: array
     required:
-      - apiIds
+    - apiIds
     type: object
   request.ApiUpdateReq:
     properties:
@@ -53,7 +53,7 @@ definitions:
         minLength: 0
         type: string
     required:
-      - id
+    - id
     type: object
   request.BaseChangePwdReq:
     properties:
@@ -76,6 +76,53 @@ definitions:
     required:
     - mail
     type: object
+  request.DeployAddReq:
+    properties:
+      branch:
+        type: string
+      git_url:
+        type: string
+      json:job_name:
+        type: string
+      run_config:
+        type: string
+    required:
+    - git_url
+    - json:job_name
+    type: object
+  request.DeployDeleteReq:
+    properties:
+      deploy_id:
+        items:
+          type: integer
+        type: array
+    required:
+    - deploy_id
+    type: object
+  request.DeployInfo:
+    properties:
+      deploy_id:
+        type: integer
+    required:
+    - deploy_id
+    type: object
+  request.DeployUpdateReq:
+    properties:
+      branch:
+        type: string
+      deploy_id:
+        type: integer
+      git_url:
+        type: string
+      job_name:
+        type: string
+      run_config:
+        type: string
+    required:
+    - deploy_id
+    - git_url
+    - job_name
+    type: object
   request.FieldRelationAddReq:
     properties:
       attributes:
@@ -87,8 +134,8 @@ definitions:
         minLength: 1
         type: string
     required:
-      - attributes
-      - flag
+    - attributes
+    - flag
     type: object
   request.FieldRelationDeleteReq:
     properties:
@@ -97,7 +144,7 @@ definitions:
           type: integer
         type: array
     required:
-      - fieldRelationIds
+    - fieldRelationIds
     type: object
   request.FieldRelationUpdateReq:
     properties:
@@ -112,9 +159,9 @@ definitions:
       id:
         type: integer
     required:
-      - attributes
-      - flag
-      - id
+    - attributes
+    - flag
+    - id
     type: object
   request.GroupAddReq:
     properties:
@@ -197,13 +244,13 @@ definitions:
         type: string
       alwaysShow:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       breadcrumb:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       component:
         maxLength: 100
@@ -211,8 +258,8 @@ definitions:
         type: string
       hidden:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       icon:
         maxLength: 50
@@ -224,8 +271,8 @@ definitions:
         type: string
       noCache:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       parentId:
         type: integer
@@ -243,18 +290,18 @@ definitions:
         type: integer
       status:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       title:
         maxLength: 50
         minLength: 1
         type: string
     required:
-      - component
-      - name
-      - path
-      - title
+    - component
+    - name
+    - path
+    - title
     type: object
   request.MenuDeleteReq:
     properties:
@@ -263,7 +310,7 @@ definitions:
           type: integer
         type: array
     required:
-      - menuIds
+    - menuIds
     type: object
   request.MenuUpdateReq:
     properties:
@@ -273,13 +320,13 @@ definitions:
         type: string
       alwaysShow:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       breadcrumb:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       component:
         maxLength: 100
@@ -287,8 +334,8 @@ definitions:
         type: string
       hidden:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       icon:
         maxLength: 50
@@ -302,8 +349,8 @@ definitions:
         type: string
       noCache:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       parentId:
         minimum: 0
@@ -322,18 +369,18 @@ definitions:
         type: integer
       status:
         enum:
-          - 1
-          - 2
+        - 1
+        - 2
         type: integer
       title:
         maxLength: 50
         minLength: 1
         type: string
     required:
-      - id
-      - name
-      - path
-      - title
+    - id
+    - name
+    - path
+    - title
     type: object
   request.OperationLogDeleteReq:
     properties:
@@ -342,7 +389,7 @@ definitions:
           type: integer
         type: array
     required:
-      - operationLogIds
+    - operationLogIds
     type: object
   request.RegisterAndLoginReq:
     properties:
@@ -646,104 +693,104 @@ paths:
   /api/add:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 新建API
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.ApiAddReq'
+      - description: 新建API
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.ApiAddReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 新建API接口
       tags:
-        - 接口管理
+      - 接口管理
   /api/delete:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 删除API
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.ApiDeleteReq'
+      - description: 删除API
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.ApiDeleteReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 删除API接口
       tags:
-        - 接口管理
+      - 接口管理
   /api/list:
     get:
       consumes:
-        - application/json
+      - application/json
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 获取API接口列表
       tags:
-        - 接口管理
+      - 接口管理
   /api/tree:
     get:
       consumes:
-        - application/json
+      - application/json
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 获取API接口树
       tags:
-        - 接口管理
+      - 接口管理
   /api/update:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 更新API
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.ApiUpdateReq'
+      - description: 更新API
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.ApiUpdateReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 更新API接口
       tags:
-        - 接口管理
+      - 接口管理
   /base/changePwd:
     post:
       consumes:
@@ -916,91 +963,302 @@ paths:
       summary: 发送验证码
       tags:
       - 基础管理
+  /deploy/add:
+    post:
+      consumes:
+      - application/json
+      description: 添加发布任务
+      parameters:
+      - description: 添加用户记录的结构体
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.DeployAddReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 添加发布任务
+      tags:
+      - 任务发布
+  /deploy/delete:
+    post:
+      consumes:
+      - application/json
+      description: 删除发布任务
+      parameters:
+      - description: 添加用户记录的结构体
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.DeployDeleteReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除发布任务
+      tags:
+      - 任务发布
+  /deploy/history/delete:
+    post:
+      consumes:
+      - application/json
+      description: 删除发布任务
+      parameters:
+      - description: 添加用户记录的结构体
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.DeployDeleteReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除发布任务
+      tags:
+      - 任务发布
+  /deploy/history/info:
+    get:
+      consumes:
+      - application/json
+      description: 获取任务详情
+      parameters:
+      - description: 发布历史ID
+        in: query
+        name: ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 任务详情
+      tags:
+      - 任务发布
+      - 任务发布
+  /deploy/history/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取任务发布历史
+      parameters:
+      - description: 添加用户记录的结构体
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.DeployInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 任务发布历史
+      tags:
+      - 任务发布
+  /deploy/info:
+    get:
+      consumes:
+      - application/json
+      description: 获取任务详情
+      parameters:
+      - description: jobID
+        in: query
+        name: ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 任务详情
+      tags:
+      - 任务发布
+      - 任务发布
+  /deploy/list:
+    get:
+      consumes:
+      - application/json
+      description: 获取任务列表
+      parameters:
+      - description: job名字
+        in: query
+        name: job_name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 任务列表
+      tags:
+      - 任务发布
+  /deploy/run:
+    get:
+      consumes:
+      - application/json
+      description: 任务发布
+      parameters:
+      - description: 发布历史ID
+        in: query
+        name: ID
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 任务发布
+      tags:
+      - 任务发布
+      - 任务发布
+  /deploy/update:
+    post:
+      consumes:
+      - application/json
+      description: 更新发布任务
+      parameters:
+      - description: 添加用户记录的结构体
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.DeployUpdateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ResponseBody'
+      security:
+      - ApiKeyAuth: []
+      summary: 更新发布任务
+      tags:
+      - 任务发布
   /fieldrelation/add:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 新建字段关系管理记录
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.FieldRelationAddReq'
+      - description: 新建字段关系管理记录
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.FieldRelationAddReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 新建字段关系管理记录
       tags:
-        - 字段关系管理
+      - 字段关系管理
   /fieldrelation/delete:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 删除字段关系管理记录
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.FieldRelationDeleteReq'
+      - description: 删除字段关系管理记录
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.FieldRelationDeleteReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 删除字段关系管理记录
       tags:
-        - 字段关系管理
+      - 字段关系管理
   /fieldrelation/list:
     get:
       consumes:
-        - application/json
+      - application/json
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 获字段关系管理列表
       tags:
-        - 字段关系管理
+      - 字段关系管理
   /fieldrelation/update:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 更新字段关系管理记录
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.FieldRelationUpdateReq'
+      - description: 更新字段关系管理记录
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.FieldRelationUpdateReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 更新字段关系管理记录
       tags:
-        - 字段关系管理
+      - 字段关系管理
   /group/add:
     post:
       consumes:
@@ -1297,194 +1555,194 @@ paths:
   /log/operation/clean:
     delete:
       consumes:
-        - application/json
+      - application/json
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 清空操作日志记录
       tags:
-        - 操作日志管理
+      - 操作日志管理
   /log/operation/delete:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 删除日志的ID
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.OperationLogDeleteReq'
+      - description: 删除日志的ID
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.OperationLogDeleteReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 删除操作日志记录
       tags:
-        - 操作日志管理
+      - 操作日志管理
   /log/operation/list:
     get:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 用户名
-          in: query
-          name: username
-          type: string
-        - description: IP地址
-          in: query
-          name: ip
-          type: string
-        - description: 路径
-          in: query
-          name: path
-          type: string
-        - description: 方法
-          in: query
-          name: method
-          type: string
-        - description: 状态码
-          in: query
-          name: status
-          type: integer
-        - description: 页码
-          in: query
-          name: pageNum
-          type: integer
-        - description: 每页数量
-          in: query
-          name: pageSize
-          type: integer
+      - description: 用户名
+        in: query
+        name: username
+        type: string
+      - description: IP地址
+        in: query
+        name: ip
+        type: string
+      - description: 路径
+        in: query
+        name: path
+        type: string
+      - description: 方法
+        in: query
+        name: method
+        type: string
+      - description: 状态码
+        in: query
+        name: status
+        type: integer
+      - description: 页码
+        in: query
+        name: pageNum
+        type: integer
+      - description: 每页数量
+        in: query
+        name: pageSize
+        type: integer
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 获取操作日志记录列表
       tags:
-        - 操作日志管理
+      - 操作日志管理
   /menu/access/tree:
     get:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 分组ID
-          in: query
-          name: id
-          required: true
-          type: integer
+      - description: 分组ID
+        in: query
+        name: id
+        required: true
+        type: integer
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 获取用户菜单树
       tags:
-        - 菜单管理
+      - 菜单管理
   /menu/add:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 新建菜单
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.MenuAddReq'
+      - description: 新建菜单
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.MenuAddReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 新建菜单
       tags:
-        - 菜单管理
+      - 菜单管理
   /menu/delete:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 删除菜单
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.MenuDeleteReq'
+      - description: 删除菜单
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.MenuDeleteReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 删除菜单
       tags:
-        - 菜单管理
+      - 菜单管理
   /menu/tree:
     get:
       consumes:
-        - application/json
+      - application/json
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 获取菜单树
       tags:
-        - 菜单管理
+      - 菜单管理
   /menu/update:
     post:
       consumes:
-        - application/json
+      - application/json
       parameters:
-        - description: 更新菜单
-          in: body
-          name: data
-          required: true
-          schema:
-            $ref: '#/definitions/request.MenuUpdateReq'
+      - description: 更新菜单
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.MenuUpdateReq'
       produces:
-        - application/json
+      - application/json
       responses:
         "200":
           description: OK
           schema:
             $ref: '#/definitions/response.ResponseBody'
       security:
-        - ApiKeyAuth: [ ]
+      - ApiKeyAuth: []
       summary: 更新菜单
       tags:
-        - 菜单管理
+      - 菜单管理
   /role/add:
     post:
       consumes:
